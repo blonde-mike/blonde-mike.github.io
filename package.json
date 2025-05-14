@@ -1,5 +1,6 @@
 {
-  "name": "vite-github-pages-demo",
+  "name": "blonde-mike.github.io",
+  "homepage": "https://blonde-mike.github.io",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,7 +11,8 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "vite-plugin-static-copy": "^3.0.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.27",
