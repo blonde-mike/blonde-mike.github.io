@@ -19,7 +19,7 @@ jobs:
           cache: npm
       - run: npm install
       - name: Build app with GitHub Pages base
-        run: npm run build -- --base /${{ github.event.repository.name }}
+        run: npm run build
       - name: Configure Pages (if this fails, set Pages source to GitHub Actions in repo settings)
         uses: actions/configure-pages@v5
       - name: Upload pages artifact
