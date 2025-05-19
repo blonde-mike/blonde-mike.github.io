@@ -1,34 +1,46 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import Header from "./components/Header/Header";
+import { AppContainer, MainContent } from "./components/Base/Base";
+import NavBar from "./components/Routing/NavBar/NavBar";
+import Resume from "./components/Pages/Resume/Resume";
+import Experience from "./components/Pages/Resume/Experience/Experience";
+import Skills from "./components/Pages/Resume/Skills/Skills";
+import Education from "./components/Pages/Resume/Education/Education";
+import Volunteering from "./components/Pages/Resume/Volunteering/Volunteering";
+import Portfolio from "./components/Pages/Portfolio/Portfolio";
+import Contact from "./components/Pages/Contact/Contact";
+import Interests from "./components/Pages/Interests/Interests";
+import Running from "./components/Pages/Interests/Running/Running";
+import Music from "./components/Pages/Interests/Music/Music";
+import Reading from "./components/Pages/Interests/Reading/Reading";
+import Gaming from "./components/Pages/Interests/Gaming/Gaming";
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Michael A Crowther</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
+    <AppContainer>
+      <Header />
+      <MainContent>
+        <BrowserRouter>
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Navigate to="/resume" replace />} />
+            <Route path="/resume" element={<Resume />} />
+            <Route path="/resume/experience" element={<Experience />} />
+            <Route path="/resume/skills" element={<Skills />} />
+            <Route path="/resume/education" element={<Education />} />
+            <Route path="/resume/volunteering" element={<Volunteering />} />
+            <Route path="/portfolio" element={<Portfolio />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/interests" element={<Interests />} />
+            <Route path="/interests/running" element={<Running />} />
+            <Route path="/interests/music" element={<Music />} />
+            <Route path="/interests/reading" element={<Reading />} />
+            <Route path="/interests/gaming" element={<Gaming />} />
+          </Routes>
+        </BrowserRouter>
+      </MainContent>
+    </AppContainer>
   );
 }
 
